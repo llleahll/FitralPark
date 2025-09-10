@@ -10,7 +10,7 @@
 - **프로젝트 기간**: 2025.03.24 ~ 2025.04.04 (12일)  
 - **팀 구성**: 6명  
 - **담당 업무**:  
-  - 메인페이지: 프론트 인덱스 구현  
+  - 메인페이지: 프론트 인덱스 (헤더/푸터/사이드바) 구현  
   - 식단관리: 프론트 + 백엔드 기능 구현
 
 ---
@@ -30,17 +30,19 @@
 
 ## 🚀 주요 기능
 
-FitralPark는 사용자 맞춤형 건강 관리 플랫폼으로, **식단 관리, 운동 관리, 헬스장 정보 제공** 등 다양한 기능을 제공합니다.  
+FitralPark는 사용자 맞춤형 건강 관리 플랫폼으로, **마이페이지, 식단 관리, 운동 관리, 식품 영양 검색, 멘토 서비스, 커뮤니티, 헬스장 정보 제공** 등 다양한 기능을 제공합니다.  
 
 ### 1️⃣ 홈 (Main)
 - 로그인/회원 인증 후 메인 기능 접근  
 - 추천 식단, 운동 루틴, 헬스장 정보 표시  
 - **⭐담당**: 메인페이지 프론트 인덱스 UI 구현  
 
-### 2️⃣ 마이페이지
-- 개인 건강 기록 조회 (체중, 운동량, 식단 기록)  
-- 목표 설정 및 진행 상황 확인  
-- Todo-list, 일정 관리, 맞춤 알람 기능  
+### 2️⃣ 식단 관리
+- 맞춤형 식단 추천 및 CRUD 기능  
+- **⭐담당**: 프론트 + 백엔드 기능 구현  
+- 실시간 데이터 반영 (Ajax 활용)  
+- CSS/레이아웃 조정으로 테이블 깨짐 방지  
+- 기록/비교/피드백 기능 포함
 
 ### 3️⃣ 커뮤니티
 - Q&A, 정보 공유 및 피드백 기능  
@@ -62,12 +64,69 @@ FitralPark는 사용자 맞춤형 건강 관리 플랫폼으로, **식단 관리
 - 온라인 PT: 식단 관리, 운동 계획 제공 및 결제 시스템  
 - 전문가 상담 예약: 예약 관리 및 피드백 시스템 제공 
 
-### 7️⃣ 식단 관리
-- 맞춤형 식단 추천 및 CRUD 기능  
-- **⭐담당**: 프론트 + 백엔드 기능 구현  
-- 실시간 데이터 반영 (Ajax 활용)  
-- CSS/레이아웃 조정으로 테이블 깨짐 방지  
-- 기록/비교/피드백 기능 포함
+### 7️⃣ 마이페이지
+- 개인 건강 기록 조회 (체중, 운동량, 식단 기록)  
+- 목표 설정 및 진행 상황 확인  
+- Todo-list, 일정 관리, 맞춤 알람 기능  
+
+---
+
+## 💻 실행 화면
+
+### 🛍️ 메인 페이지
+<img src="https://github.com/user-attachments/assets/d62caf1f-969e-4ed7-bd3f-b26f1928bb9e" width="800">
+
+### 메인 담당 기여도
+[네비게이션바 상세 메뉴]
+
+  <img src="https://github.com/user-attachments/assets/0d2b153a-1d87-441f-a567-857b45227f49" width="800">  
+
+  
+[로그인 헤더 알림]
+
+
+  <img src="https://github.com/user-attachments/assets/b2c93eed-78d2-43de-9018-4ab97a8b7f02" width="800">  
+
+  
+[알람 수신 토글바]
+
+
+  <img src="https://github.com/user-attachments/assets/37f545ca-5fd1-404f-a5c5-2a12eaf57332" width="800">  
+
+  
+[풀 메뉴]
+
+
+  <img src="https://github.com/user-attachments/assets/5cfbb15d-c8c6-42d2-b163-f4fe13ee98d5" width="800"> 
+
+[사이드바]
+
+
+<img src = "https://github.com/user-attachments/assets/945fe2e4-9b5a-4819-8a8d-4a5b848e9e9a">
+
+---
+
+### 🥗 식단 캘린더 & 관리
+#### 내가 담당한 부분
+- 식단 캘린더
+- 식단 생성
+- 식단 리스트
+- 식단 불러오기
+<img src="https://github.com/user-attachments/assets/1a348ab6-298f-4da6-b29a-da5cbef9a34a" width="800">
+<img src="https://github.com/user-attachments/assets/2f7ea562-66b4-486c-90ca-38a59b397a6e" width="800">
+<img src="https://github.com/user-attachments/assets/079f7e5e-0a57-469d-adc3-a1a8baaf7a27" width="800">
+<img src="https://github.com/user-attachments/assets/76ca207d-7bd2-4ee1-b2c0-e2109163ad72" width="800">
+<img src="https://github.com/user-attachments/assets/d8c289c2-e349-49b7-b443-081121bacb31" width="800">
+
+---
+
+### 📊 식단 분석
+#### 내가 담당한 부분
+- 식단 분석 화면
+- 분석 결과 표시 UI
+<img src="https://github.com/user-attachments/assets/6a412776-f89e-4968-957e-153b096432a1" width="800">
+
+
 
 ---
 
@@ -92,3 +151,28 @@ fitralpark/
 └── README.md
 ```
 ---
+
+## 🚀 실행 방법
+
+### 1️⃣ DB 세팅
+- Oracle XE 18c 설치 후, 제공된 SQL 스크립트(`FitralPark_DDL.sql`) 실행
+- 데이터베이스 및 테이블 생성 확인
+
+### 2️⃣ 프로젝트 열기
+- Eclipse 또는 IntelliJ IDEA에서 **Dynamic Web Project**로 프로젝트 임포트
+
+### 3️⃣ 서버 설정
+- Tomcat 9 이상 설치 및 프로젝트 연결
+- `web.xml` 및 `context.xml`에서 DB 접속 정보 확인/수정
+
+### 4️⃣ 환경 설정
+- `db.properties`에서 DB 계정, 비밀번호, URL 확인 및 필요 시 수정
+
+### 5️⃣ 서버 구동
+- **Eclipse**: 프로젝트 우클릭 → Run As → Run on Server  
+- **IntelliJ IDEA**: Tomcat 설정 후 Run 클릭
+
+### 6️⃣ 접속 주소
+- 사용자 페이지: `http://localhost:8090/FitralPark/`
+---
+

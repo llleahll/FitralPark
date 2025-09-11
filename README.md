@@ -150,4 +150,74 @@ fitralpark/
 ### 6️⃣ 접속 주소
 - 사용자 페이지: `http://localhost:8090/FitralPark/`
 ---
+## 🔧 Troubleshooting
+
+### 1. 404 Not Found (JSP 매핑 오류)
+- **문제**: JSP 페이지 이동 시 404 에러 발생  
+- **원인**: `web.xml` 혹은 `@WebServlet` 매핑 경로와 JSP 파일 경로 불일치  
+- **해결**:  
+  - `RequestDispatcher`의 경로를 실제 JSP 위치와 동일하게 수정  
+  - View 파일은 반드시 `/WEB-INF/views/` 하위에 배치  
+
+
+
+### 2. 한글 깨짐 (Encoding 문제)
+- **문제**: 입력 폼 전송 시 한글 데이터가 깨져서 DB에 저장됨  
+- **원인**: request 기본 인코딩 미설정 (`ISO-8859-1`로 처리됨)  
+- **해결**:  
+  - `web.xml`에 필터 등록  
+    ```xml
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    ```  
+  - JSP 상단에 `<%@ page contentType="text/html; charset=UTF-8" %>` 명시  
+
+
+
+### 3. NullPointerException (세션/파라미터 누락)
+- **문제**: 로그인 후 마이페이지 접근 시 NPE 발생  
+- **원인**: 세션에 사용자 정보가 없거나, request parameter가 null로 넘어옴  
+- **해결**:  
+  - Controller(Servlet)에서 세션 유효성 체크 로직 추가  
+  - `Optional` 패턴으로 null 값 처리  
+
+
+
+### 4. DB 연결 실패
+- **문제**: 초기 실행 시 DB 연결 불가 (`ORA-28009` 또는 계정/비밀번호 오류)  
+- **원인**: `context.xml` DB 설정 오류, Oracle XE 계정 권한 미설정  
+- **해결**:  
+  - `META-INF/context.xml` 및 `web.xml`의 DB JNDI 설정 재확인  
+  - `SQL Developer`로 직접 접속 테스트 후 계정 권한 부여  
+
+
+
+### 5. Ajax 호출 시 500 Error
+- **문제**: 식단 등록/불러오기 Ajax 요청 시 서버 오류 발생  
+- **원인**:  
+  - Controller에서 JSON 응답을 반환하지 않고 JSP forward 처리  
+  - `response.setContentType("application/json")` 누락  
+- **해결**:  
+  - Controller에서 JSON 문자열 직접 출력  
+  - Jackson 라이브러리 연동 후 `ObjectMapper`로 JSON 변환  
+
+
+
+### 6. CSS/JS 리소스 로드 실패
+- **문제**: 정적 리소스(css, js) 불러오기 실패  
+- **원인**: JSP 상대경로 문제 또는 `DispatcherServlet`이 정적 리소스를 가로챔  
+- **해결**:  
+  - `<link href="<c:url value='/resources/css/style.css'/>">` 형태로 경로 지정  
+  - `web.xml`에서 `/resources/*` 경로를 `DefaultServlet`으로 매핑
+
 
